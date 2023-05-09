@@ -1,5 +1,6 @@
 export default defineEventHandler((event) => {
-  setResponseHeader(event, "set-cookie", ["A=1", "B=2", "C=3"]);
-
-  return "Hello upstream";
+  return proxyRequest(
+    event,
+    "https://7dzqb4dvrf.execute-api.eu-central-1.amazonaws.com/dev"
+  );
 });
